@@ -11,14 +11,13 @@ root.config(bg="#008080")
 players = ["x","o"]
 player = random.choice(players)
 
-
 def next_turn(row, column):
 
     global player
     if buttons[row][column]['text'] == "":
         if check_winner() is False:
             if player == players[0]:
-                buttons[row][column]["text"] = player
+                buttons[row][column]["text"] = str(player)
                 if empty_spaces() is False:
                   label.config(text="Tie!")
 
@@ -32,7 +31,7 @@ def next_turn(row, column):
 
 
             else:
-                buttons[row][column]["text"] = player
+                buttons[row][column]["text"] = str(player)
 
                 if empty_spaces() is False:
                     label.config(text="Tie!")
