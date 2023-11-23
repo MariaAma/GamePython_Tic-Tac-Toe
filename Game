@@ -15,35 +15,34 @@ player = random.choice(players)
 def next_turn(row, column):
 
     global player
-    if buttons[row][column]['text'] == "" and check_winner() is False:
-        if player == players[0]:
-            buttons[row][column]["text"] = player
-            if empty_spaces() is False:
-                label.config(text="Tie!")
+    if buttons[row][column]['text'] == "":
+        if check_winner() is False:
+            if player == players[0]:
+                buttons[row][column]["text"] = player
+                if empty_spaces() is False:
+                  label.config(text="Tie!")
 
-            if check_winner() is False:
-                player = players[1]
-                label.config(text=player+" Turn")
+                if check_winner() is False:
+                    player = players[1]
+                    label.config(text=player+" Turn")
                 
-            else:
-                label.config(text=(players[0]+" wins"))            
+                else:
+                    label.config(text=(players[0]+" wins"))            
 
 
-
-        else:
-         
-         if player == players[1]:
-            buttons[row][column]["text"] = player
-
-            if empty_spaces() is False:
-                label.config(text="Tie!")
-                
-            if check_winner() is False:
-                player = players[0]
-                label.config(text=player+" Turn")
 
             else:
-                label.config(text=(players[1]+" wins"))            
+                buttons[row][column]["text"] = player
+
+                if empty_spaces() is False:
+                    label.config(text="Tie!")
+                
+                if check_winner() is False:
+                    player = players[0]
+                    label.config(text=player+" Turn")
+
+                else:
+                    label.config(text=(players[1]+" wins"))            
 
 
 def check_winner():
@@ -66,6 +65,7 @@ def check_winner():
         buttons[1][1].config(bg="green")
         buttons[2][2].config(bg="green")
         r = 1
+        
     if buttons[0][2]['text'] == buttons[1][1]['text'] == buttons[2][0]['text'] != "":
         buttons[0][2].config(bg="green")
         buttons[1][1].config(bg="green")
