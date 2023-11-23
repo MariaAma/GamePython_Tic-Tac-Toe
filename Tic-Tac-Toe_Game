@@ -111,7 +111,7 @@ bottom_frame = Frame(root)
 bottom_frame.place(relx=.5, rely=.5, anchor="center")
 for row in range(3):
     for column in range(3):
-        buttons[row][column] = Button(bottom_frame, text="",font=('arial',40), width=5, height=1, bg= "darkgrey",
+        buttons[row][column] = Button(bottom_frame, text="", font=('arial',40), width=5, height=1, bg= "darkgrey",
                                       command= lambda row=row, column=column: next_turn(row,column))
         buttons[row][column].grid(row=row,column=column)
         
@@ -122,7 +122,7 @@ btn.pack(side=BOTTOM)
 
 #Title
 title= Canvas(root, width= 1000, height= 40, bg="black")
-title.create_text(450, 20, text="Tic-Tac-Toe Game.", fill="teal", font=('Helvetica 25 bold'))
+title.create_text(450, 20, text="Tic-Tac-Toe Game.", fill="teal", font=('arial', 25, "bold"))
 title.pack()
 
 #Text
