@@ -18,30 +18,29 @@ def next_turn(row, column):
         if check_winner() is False:
             if player == players[0]:
                 buttons[row][column]["text"] = str(player)
-                if empty_spaces() is False:
-                  label.config(text="Tie!")
+                if check_winner() is True:
+                    label.config(text=(players[0]+" wins"))  
 
-                if check_winner() is False:
-                    player = players[1]
-                    label.config(text=player+" Turn")
-                
+                elif empty_spaces() is False:
+                    label.config(text="Tie!")
+
                 else:
-                    label.config(text=(players[0]+" wins"))            
+                    player = players[1]
+                    label.config(text=player+" Turn")           
 
 
 
             else:
                 buttons[row][column]["text"] = str(player)
+                if check_winner() is True:
+                    label.config(text=(players[1]+" wins"))  
 
-                if empty_spaces() is False:
+                elif empty_spaces() is False:
                     label.config(text="Tie!")
                 
-                if check_winner() is False:
-                    player = players[0]
-                    label.config(text=player+" Turn")
-
                 else:
-                    label.config(text=(players[1]+" wins"))            
+                    player = players[0]
+                    label.config(text=player+" Turn")           
 
 
 def check_winner():
